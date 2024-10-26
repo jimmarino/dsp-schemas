@@ -213,38 +213,6 @@
         }
       ]
     },
-    "Operator": {
-      "type": "string",
-      "enum": [
-        "eq",
-        "gt",
-        "gteq",
-        "hasPart",
-        "isA",
-        "isAllOf",
-        "isAnyOf",
-        "isNoneOf",
-        "isPartOf",
-        "lt",
-        "term-lteq",
-        "neq"
-      ]
-    },
-    "RightOperand": {},
-    "LeftOperand": {
-      "type": "string"
-    },
-    "Reference": {
-      "type": "object",
-      "properties": {
-        "@id": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "@id"
-      ]
-    },
     "MultiplicityConstraint": {
       "type": "object",
       "properties": {
@@ -314,6 +282,38 @@
         "rightOperand",
         "operator",
         "leftOperand"
+      ]
+    },
+    "Operator": {
+      "type": "string",
+      "enum": [
+        "eq",
+        "gt",
+        "gteq",
+        "hasPart",
+        "isA",
+        "isAllOf",
+        "isAnyOf",
+        "isNoneOf",
+        "isPartOf",
+        "lt",
+        "term-lteq",
+        "neq"
+      ]
+    },
+    "RightOperand": {},
+    "LeftOperand": {
+      "type": "string"
+    },
+    "Reference": {
+      "type": "object",
+      "properties": {
+        "@id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "@id"
       ]
     }
   }
