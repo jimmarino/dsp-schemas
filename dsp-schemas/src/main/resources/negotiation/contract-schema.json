@@ -180,9 +180,6 @@
       "allOf": [
         {
           "properties": {
-            "@id": {
-              "type": "string"
-            },
             "action": {
               "$ref": "#/definitions/Action"
             },
