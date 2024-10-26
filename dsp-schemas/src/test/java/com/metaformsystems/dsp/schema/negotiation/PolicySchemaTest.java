@@ -33,6 +33,7 @@ public class PolicySchemaTest extends AbstractSchemaTest {
         assertThat(schema.validate(POLICY_AND_CONSTRAINT, JSON)).isEmpty();
         assertThat(schema.validate(POLICY_AND_SEQUENCE_CONSTRAINT, JSON)).isEmpty();
         assertThat(schema.validate(POLICY_XONE_SEQUENCE_CONSTRAINT, JSON)).isEmpty();
+        assertThat(schema.validate(POLICY_NESTED_MULTIPLICITY, JSON)).isEmpty();
     }
 
     @BeforeEach
@@ -236,6 +237,40 @@ public class PolicySchemaTest extends AbstractSchemaTest {
                  ]
                }
             """;
-
+    private static final String POLICY_NESTED_MULTIPLICITY = """
+            {
+              "@id": "urn:uuid:3dd1add8-4d2d-569e-d634-8394a8836a88",
+              "@type": "Offer",
+              "target": "asset:1",
+              "permission": [
+                {
+                  "action": "use",
+                  "constraint": {
+                    "or": [
+                      {
+                        "and": [
+                          {
+                            "leftOperand": "constraint1",
+                            "operator": "eq",
+                            "rightOperand": "value1"
+                          },
+                          {
+                            "leftOperand": "constraint2",
+                            "operator": "eq",
+                            "rightOperand": "value2"
+                          }
+                        ]
+                      },
+                      {
+                        "leftOperand": "partner",
+                        "operator": "eq",
+                        "rightOperand": "silver"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+            """;
 
 }

@@ -301,7 +301,19 @@
         "neq"
       ]
     },
-    "RightOperand": {},
+    "RightOperand": {
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "object"
+        },
+        {
+          "type": "array"
+        }
+      ]
+    },
     "LeftOperand": {
       "type": "string"
     },
