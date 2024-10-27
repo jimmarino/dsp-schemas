@@ -69,8 +69,21 @@
           "minItems": 1
         },
         "accessService": {
-          "type": "string",
-          "minItems": 1
+          "oneOf": [
+            {
+              "type": "string",
+              "minItems": 1
+            },
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/DataService",
+                "not": {
+                  "required": ["servesDataset"]
+                }
+              }
+            }
+          ]
         },
         "format": {
           "type": "string"
@@ -89,6 +102,13 @@
         },
         {
           "properties": {
+            "@id": {
+              "type": "string"
+            },
+            "@type": {
+              "type": "string",
+              "const": "DataService"
+            },
             "endpointURL": {
               "type": "string"
             },
@@ -101,6 +121,8 @@
             }
           },
           "required": [
+            "@id",
+            "@type",
             "endpointURL"
           ]
         }
