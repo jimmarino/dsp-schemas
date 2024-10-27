@@ -47,11 +47,11 @@ public class AgreementSchemaTest extends AbstractSchemaTest {
               "permission": [
                 {
                   "action": "use",
-                  "constraint": {
+                  "constraint": [{
                       "leftOperand": "partner",
                       "operator": "eq",
                       "rightOperand": "gold"
-                  }
+                  }]
                 }
               ]
             }""";

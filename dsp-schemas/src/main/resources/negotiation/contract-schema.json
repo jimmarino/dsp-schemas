@@ -160,12 +160,10 @@
           "$ref": "#/definitions/Action"
         },
         "constraint": {
-          "type": "object",
-          "allOf": [
-            {
-              "$ref": "#/definitions/Constraint"
-            }
-          ]
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Constraint"
+          }
         },
         "duty": {
           "$ref": "#/definitions/Duty"
@@ -184,7 +182,7 @@
               "$ref": "#/definitions/Action"
             },
             "constraint": {
-              "type": "object",
+              "type": "array",
               "items": {
                 "$ref": "#/definitions/Constraint"
               }
@@ -203,14 +201,14 @@
       "type": "object",
       "oneOf": [
         {
-          "$ref": "#/definitions/MultiplicityConstraint"
+          "$ref": "#/definitions/LogicalConstraint"
         },
         {
           "$ref": "#/definitions/AtomicConstraint"
         }
       ]
     },
-    "MultiplicityConstraint": {
+    "LogicalConstraint": {
       "type": "object",
       "properties": {
         "and": {
@@ -226,7 +224,7 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "#/definitions/MultiplicityConstraint"
+                "$ref": "#/definitions/LogicalConstraint"
               },
               {
                 "$ref": "#/definitions/AtomicConstraint"

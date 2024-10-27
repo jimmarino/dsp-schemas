@@ -49,11 +49,11 @@ public class PolicySchemaTest extends AbstractSchemaTest {
               "permission": [
                 {
                   "action": "use",
-                  "constraint": {
+                  "constraint": [{
                     "leftOperand": "partner",
                     "operator": "eq",
                     "rightOperand": "gold"
-                  },
+                  }],
                   "duty": {
                     "action": "report"
                   }
@@ -70,11 +70,11 @@ public class PolicySchemaTest extends AbstractSchemaTest {
               "permission": [
                 {
                   "action": "use",
-                  "constraint": {
+                  "constraint": [{
                       "leftOperand": "partner",
                       "operator": "eq",
                       "rightOperand": "gold"
-                  },
+                  }],
                   "duty": {
                     "action": "report"
                   }
@@ -91,11 +91,11 @@ public class PolicySchemaTest extends AbstractSchemaTest {
               "permission": [
                 {
                   "action": "use",
-                  "constraint": {
+                  "constraint": [{
                       "leftOperand": "partner",
                       "operator": "eq",
                       "rightOperand": "gold"
-                  },
+                  }],
                   "duty": {
                     "action": "report"
                   }
@@ -112,18 +112,18 @@ public class PolicySchemaTest extends AbstractSchemaTest {
               "permission": [
                 {
                   "action": "use",
-                  "constraint": {
+                  "constraint": [{
                       "leftOperand": "partner",
                       "operator": "eq",
                       "rightOperand": "gold"
-                  },
+                  }],
                   "duty": {
                     "action": "report",
-                    "constraint": {
+                    "constraint": [{
                           "leftOperand": "event",
                           "operator": "gt",
                           "rightOperand": "use"
-                    }
+                    }]
                   }
                 }
               ]
@@ -138,7 +138,7 @@ public class PolicySchemaTest extends AbstractSchemaTest {
                  "permission": [
                    {
                      "action": "use",
-                     "constraint": {
+                     "constraint": [{
                        "or": [
                          {
                            "leftOperand": "partner",
@@ -151,7 +151,7 @@ public class PolicySchemaTest extends AbstractSchemaTest {
                            "rightOperand": "silver"
                          }
                        ]
-                     }
+                     }]
                    }
                  ]
                }
@@ -165,7 +165,7 @@ public class PolicySchemaTest extends AbstractSchemaTest {
                  "permission": [
                    {
                      "action": "use",
-                     "constraint": {
+                     "constraint": [{
                        "and": [
                          {
                            "leftOperand": "partner",
@@ -178,7 +178,7 @@ public class PolicySchemaTest extends AbstractSchemaTest {
                            "rightOperand": "silver"
                          }
                        ]
-                     }
+                     }]
                    }
                  ]
                }
@@ -192,7 +192,7 @@ public class PolicySchemaTest extends AbstractSchemaTest {
                  "permission": [
                    {
                      "action": "use",
-                     "constraint": {
+                     "constraint": [{
                        "andSequence": [
                          {
                            "leftOperand": "partner",
@@ -205,7 +205,7 @@ public class PolicySchemaTest extends AbstractSchemaTest {
                            "rightOperand": "silver"
                          }
                        ]
-                     }
+                     }]
                    }
                  ]
                }
@@ -219,7 +219,7 @@ public class PolicySchemaTest extends AbstractSchemaTest {
                  "permission": [
                    {
                      "action": "use",
-                     "constraint": {
+                     "constraint": [{
                        "xone": [
                          {
                            "leftOperand": "partner",
@@ -232,7 +232,7 @@ public class PolicySchemaTest extends AbstractSchemaTest {
                            "rightOperand": "silver"
                          }
                        ]
-                     }
+                     }]
                    }
                  ]
                }
@@ -245,7 +245,7 @@ public class PolicySchemaTest extends AbstractSchemaTest {
               "permission": [
                 {
                   "action": "use",
-                  "constraint": {
+                  "constraint": [{
                     "or": [
                       {
                         "and": [
@@ -267,7 +267,7 @@ public class PolicySchemaTest extends AbstractSchemaTest {
                         "rightOperand": "silver"
                       }
                     ]
-                  }
+                  }]
                 }
               ]
             }
