@@ -285,6 +285,7 @@
         "eq",
         "gt",
         "gteq",
+        "lteq",
         "hasPart",
         "isA",
         "isAllOf",
