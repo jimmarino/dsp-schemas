@@ -43,13 +43,20 @@
         }
       ],
       "required": [
-        "hasPolicy"
+        "hasPolicy",
+        "distribution"
       ]
     },
     "Resource": {
       "type": "object",
       "properties": {
-      }
+        "@id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "@id"
+      ]
     },
     "Distribution": {
       "type": "object",
@@ -62,15 +69,16 @@
           "minItems": 1
         },
         "accessService": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/DataService"
-          },
+          "type": "string",
           "minItems": 1
+        },
+        "format": {
+          "type": "string"
         }
       },
       "required": [
-        "accessService"
+        "accessService",
+        "format"
       ]
     },
     "DataService": {
@@ -91,7 +99,10 @@
               },
               "minItems": 1
             }
-          }
+          },
+          "required": [
+            "endpointURL"
+          ]
         }
       ]
     },

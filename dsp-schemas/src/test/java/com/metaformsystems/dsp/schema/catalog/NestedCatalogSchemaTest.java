@@ -20,31 +20,18 @@ import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
-import static com.networknt.schema.InputFormat.JSON;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class CatalogSchemaTest extends AbstractSchemaTest {
+public class NestedCatalogSchemaTest extends AbstractSchemaTest {
 
     @Test
     void verifySchema() throws IOException {
-        var node = mapper.readTree(getClass().getResourceAsStream("/catalog/example/catalog.json"));
+        var node = mapper.readTree(getClass().getResourceAsStream("/catalog/example/nested-catalog.json"));
         assertThat(schema.validate(node)).isEmpty();
-        assertThat(schema.validate(MINIMAL_CATALOG, JSON)).isEmpty();
     }
 
     @BeforeEach
     void setUp() {
         setUp("/catalog/catalog-schema.json");
     }
-
-    private static final String MINIMAL_CATALOG = """
-            {
-              "@context": [
-                "https://w3id.org/dspace/2024/1/context.json"
-              ],
-              "@id": "urn:uuid:3afeadd8-ed2d-569e-d634-8394a8836d57",
-              "@type": "Catalog",
-              "participantId": "urn:example:DataProviderA"
-            }
-            """;
 }

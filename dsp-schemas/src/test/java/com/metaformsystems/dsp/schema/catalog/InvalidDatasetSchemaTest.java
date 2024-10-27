@@ -27,9 +27,11 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class InvalidDatasetSchemaTest extends AbstractSchemaTest {
 
     @Test
-    void verifyInvalidCases
-            () {
+    void verifyInvalidCases() {
         assertThat(schema.validate(INVALID_NO_ID_DATASET, JSON).iterator().next().getType()).isEqualTo(REQUIRED);
+        assertThat(schema.validate(INVALID_NO_ID_DATASET_NO_POLICY, JSON).iterator().next().getType()).isEqualTo(REQUIRED);
+        assertThat(schema.validate(INVALID_NO_DISTRIBUTION, JSON).iterator().next().getType()).isEqualTo(REQUIRED);
+        assertThat(schema.validate(INVALID_NO_DISTRIBUTION_FORMAT, JSON).iterator().next().getType()).isEqualTo(REQUIRED);
     }
 
     @BeforeEach
@@ -41,8 +43,8 @@ public class InvalidDatasetSchemaTest extends AbstractSchemaTest {
             {
               "hasPolicy": [
                 {
+                  "@id": "urn:uuid:3dd1add8-4d2d-569e-d634-8394a8836a88",
                   "@type": "Offer",
-                  "assigner": "http://example.com/Provider",
                   "permission": [
                     {
                       "action": "use",
@@ -54,6 +56,73 @@ public class InvalidDatasetSchemaTest extends AbstractSchemaTest {
                     }
                   ]
                 }
+              ],
+              "distribution": [
+                  {
+                    "accessService" : "urn:uuid:fdb94161-14b4-4319-9f45-09dda9f3ce83",
+                    "format": "HttpData-PULL"
+                  }
+              ]
+            }
+            """;
+
+    private static final String INVALID_NO_ID_DATASET_NO_POLICY = """
+            {
+              "@id": "urn:uuid:3dd1add8-4d2d-569e-d634-8394a8836a88",
+              "distribution": [
+                  {
+                    "accessService" : "urn:uuid:fdb94161-14b4-4319-9f45-09dda9f3ce83",
+                    "format": "HttpData-PULL"
+                  }
+              ]
+            }
+            """;
+
+    private static final String INVALID_NO_DISTRIBUTION = """
+            {
+              "@id": "urn:uuid:3dd1add8-4d2d-569e-d634-8394a8836a88",
+              "hasPolicy": [
+                {
+                  "@id": "urn:uuid:3dd1add8-4d2d-569e-d634-8394a8836a88",
+                  "@type": "Offer",
+                  "permission": [
+                    {
+                      "action": "use",
+                      "constraint": [{
+                        "leftOperand": "spatial",
+                        "operator": "eq",
+                        "rightOperand": "http://example.org/EU"
+                      }]
+                    }
+                  ]
+                }
+              ]
+            }
+            """;
+
+    private static final String INVALID_NO_DISTRIBUTION_FORMAT = """
+            {
+              "@id": "urn:uuid:3dd1add8-4d2d-569e-d634-8394a8836a88",
+              "hasPolicy": [
+                {
+                  "@id": "urn:uuid:3dd1add8-4d2d-569e-d634-8394a8836a88",
+                  "@type": "Offer",
+                  "permission": [
+                    {
+                      "action": "use",
+                      "constraint": [{
+                        "leftOperand": "spatial",
+                        "operator": "eq",
+                        "rightOperand": "http://example.org/EU"
+                      }]
+                    }
+                  ]
+                }
+              ],
+              "distribution": [
+                  {
+                    "accessService" : "urn:uuid:fdb94161-14b4-4319-9f45-09dda9f3ce83"
+                  }
               ]
             }
             """;

@@ -50,12 +50,16 @@ public class DatasetSchemaTest extends AbstractSchemaTest {
                         "leftOperand": "spatial",
                         "operator": "eq",
                         "rightOperand": "http://example.org/EU"
-                      }],
-                      "duty": {
-                        "action": "Attribution"
-                      }
+                      }]
                     }
                   ]
+                }
+              ],
+              "distribution": [
+                {
+                  "@type": "Distribution",
+                  "format": "HttpData-PULL",
+                  "accessService": "urn:uuid:4aa2dcc8-4d2d-569e-d634-8394a8834d77"
                 }
               ]
             }
