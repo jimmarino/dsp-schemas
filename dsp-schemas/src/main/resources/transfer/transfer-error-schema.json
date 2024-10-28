@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "title": "TransferErrorSchema",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "#/definitions/TransferError"
+    }
+  ],
+  "$id": "https://w3id.org/dspace/2024/1/transfer/transfer-error-schema.json",
+  "definitions": {
+    "TransferError": {
+      "type": "object",
+      "properties": {
+        "@context": {
+          "$ref": "https://w3id.org/dspace/2024/1/common/context-schema.json"
+        },
+        "@type": {
+          "type": "string",
+          "const": "TransferError"
+        },
+        "providerPid": {
+          "type": "string"
+        },
+        "consumerPid": {
+          "type": "string"
+        },
+        "code": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "array",
+          "items": {}
+        }
+      },
+      "required": [
+        "@context",
+        "@type",
+        "providerPid",
+        "consumerPid"
+      ]
+    }
+  }
+}

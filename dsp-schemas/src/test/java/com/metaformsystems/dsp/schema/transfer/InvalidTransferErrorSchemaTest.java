@@ -21,7 +21,7 @@ import org.junit.jupiter.api.Test;
 import static com.networknt.schema.InputFormat.JSON;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class InvalidTransferCompletionMessageSchemaTest extends AbstractSchemaTest {
+public class InvalidTransferErrorSchemaTest extends AbstractSchemaTest {
 
     @Test
     void verifyInvalidCases() {
@@ -33,12 +33,12 @@ public class InvalidTransferCompletionMessageSchemaTest extends AbstractSchemaTe
 
     @BeforeEach
     void setUp() {
-        setUp("/transfer/transfer-completion-message-schema.json");
+        setUp("/transfer/transfer-error-schema.json");
     }
 
     private static final String INVALID_MESSAGE_NO_CONTEXT = """
             {
-              "@type": "TransferCompletionMessage",
+              "@type": "TransferError",
               "providerPid": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
               "consumerPid": "urn:uuid:32541fe6-c580-409e-85a8-8a9a32fbe833"
             }
@@ -59,7 +59,7 @@ public class InvalidTransferCompletionMessageSchemaTest extends AbstractSchemaTe
               "@context": [
                 "https://w3id.org/dspace/2024/1/context.json"
               ],
-              "@type": "TransferCompletionMessage",
+              "@type": "TransferError",
               "consumerPid": "urn:uuid:32541fe6-c580-409e-85a8-8a9a32fbe833"
             }
             """;
