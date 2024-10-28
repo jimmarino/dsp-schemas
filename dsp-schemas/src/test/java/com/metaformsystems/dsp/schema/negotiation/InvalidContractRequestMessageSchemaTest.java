@@ -25,12 +25,12 @@ public class InvalidContractRequestMessageSchemaTest extends AbstractSchemaTest 
 
     @Test
     void verifyInvalidCases() {
-        assertThat(schema.validate(INVALID_REQUEST_NO_OFFER, JSON).iterator().next().getType()).isEqualTo(REQUIRED);;
-        assertThat(schema.validate(INVALID_REQUEST_NO_ID, JSON).iterator().next().getType()).isEqualTo(ONE_OF);;
-        assertThat(schema.validate(INVALID_REQUEST_NO_CONSUMER_ID, JSON).iterator().next().getType()).isEqualTo(REQUIRED);;
-        assertThat(schema.validate(INVALID_REQUEST_NO_CALLBACK, JSON).iterator().next().getType()).isEqualTo(REQUIRED);;
-        assertThat(schema.validate(INVALID_REQUEST_NO_TYPE, JSON).iterator().next().getType()).isEqualTo(REQUIRED);;
-        assertThat(schema.validate(INVALID_REQUEST_NO_CONTEXT, JSON).iterator().next().getType()).isEqualTo(REQUIRED);;
+        assertThat(schema.validate(INVALID_REQUEST_NO_OFFER, JSON).iterator().next().getType()).isEqualTo(REQUIRED);
+        assertThat(schema.validate(INVALID_REQUEST_NO_ID, JSON).iterator().next().getType()).isEqualTo(ONE_OF);
+        assertThat(schema.validate(INVALID_REQUEST_NO_CONSUMER_ID, JSON).iterator().next().getType()).isEqualTo(REQUIRED);
+        assertThat(schema.validate(INVALID_REQUEST_NO_CALLBACK, JSON).iterator().next().getType()).isEqualTo(REQUIRED);
+        assertThat(schema.validate(INVALID_REQUEST_NO_TYPE, JSON).iterator().next().getType()).isEqualTo(REQUIRED);
+        assertThat(schema.validate(INVALID_REQUEST_NO_CONTEXT, JSON).iterator().next().getType()).isEqualTo(REQUIRED);
     }
 
     @BeforeEach
