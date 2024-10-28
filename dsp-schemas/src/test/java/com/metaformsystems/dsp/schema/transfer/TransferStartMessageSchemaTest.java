@@ -23,11 +23,11 @@ import java.io.IOException;
 import static com.networknt.schema.InputFormat.JSON;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class TransferRequestMessageSchemaTest extends AbstractSchemaTest {
+public class TransferStartMessageSchemaTest extends AbstractSchemaTest {
 
     @Test
     void verifyRequestSchema() throws IOException {
-        var node = mapper.readTree(getClass().getResourceAsStream("/transfer/example/transfer-request-message.json"));
+        var node = mapper.readTree(getClass().getResourceAsStream("/transfer/example/transfer-start-message.json"));
         assertThat(schema.validate(node)).isEmpty();
     }
 
@@ -38,19 +38,17 @@ public class TransferRequestMessageSchemaTest extends AbstractSchemaTest {
 
     @BeforeEach
     void setUp() {
-        setUp("/transfer/transfer-request-message-schema.json");
+        setUp("/transfer/transfer-start-message-schema.json");
     }
 
     private static final String MINIMAL_REQUEST = """
             {
-              "@context": [
-                "https://w3id.org/dspace/2024/1/context.json"
-              ],
-              "@type": "TransferRequestMessage",
-              "consumerPid": "urn:uuid:32541fe6-c580-409e-85a8-8a9a32fbe833",
-              "agreementId": "urn:uuid:e8dc8655-44c2-46ef-b701-4cffdc2faa44",
-              "format": "example:HTTP_PUSH",
-              "callbackAddress": "https://example.com/callback"
+                "@context": [
+                  "https://w3id.org/dspace/2024/1/context.json"
+                ],
+                "@type": "TransferStartMessage",
+                "providerPid": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
+                "consumerPid": "urn:uuid:32541fe6-c580-409e-85a8-8a9a32fbe833"
             }
             """;
 }

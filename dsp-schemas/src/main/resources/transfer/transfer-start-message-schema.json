@@ -1,15 +1,15 @@
 {
   "$schema": "https://json-schema.org/draft/2019-09/schema",
-  "title": "TransferRequestMessageSchema",
+  "title": "TransferStartMessageSchema",
   "type": "object",
   "allOf": [
     {
-      "$ref": "#/definitions/TransferRequestMessage"
+      "$ref": "#/definitions/TransferStartMessage"
     }
   ],
-  "$id": "https://w3id.org/dspace/2024/1/transfer/transfer-request-message-schema.json",
+  "$id": "https://w3id.org/dspace/2024/1/transfer/transfer-start-message-schema.json",
   "definitions": {
-    "TransferRequestMessage": {
+    "TransferStartMessage": {
       "type": "object",
       "properties": {
         "@context": {
@@ -17,30 +17,22 @@
         },
         "@type": {
           "type": "string",
-          "const": "TransferRequestMessage"
+          "const": "TransferStartMessage"
         },
-        "agreementId": {
-          "type": "string"
-        },
-        "format": {
-          "type": "string"
-        },
-        "dataAddress": {
-          "$ref": "https://w3id.org/dspace/2024/1/transfer/transfer-schema.json"
-        },
-        "callbackAddress": {
+        "providerPid": {
           "type": "string"
         },
         "consumerPid": {
           "type": "string"
+        },
+        "dataAddress": {
+          "$ref": "https://w3id.org/dspace/2024/1/transfer/transfer-schema.json"
         }
       },
       "required": [
         "@context",
         "@type",
-        "agreementId",
-        "format",
-        "callbackAddress",
+        "providerPid",
         "consumerPid"
       ]
     }

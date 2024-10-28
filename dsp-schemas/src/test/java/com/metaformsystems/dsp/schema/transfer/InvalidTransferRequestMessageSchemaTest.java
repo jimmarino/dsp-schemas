@@ -108,7 +108,7 @@ public class InvalidTransferRequestMessageSchemaTest extends AbstractSchemaTest 
               "@type": "TransferRequestMessage",
               "consumerPid": "urn:uuid:32541fe6-c580-409e-85a8-8a9a32fbe833",
               "agreementId": "urn:uuid:e8dc8655-44c2-46ef-b701-4cffdc2faa44",
-              "format": "example:HTTP_PUSH",
+              "format": "example:HTTP_PUSH"
             }
             """;
 
@@ -158,7 +158,6 @@ public class InvalidTransferRequestMessageSchemaTest extends AbstractSchemaTest 
               "dataAddress": {
                 "@type": "DataAddress",
                 "endpointType": "https://w3id.org/idsa/v4.1/HTTP"
-                ]
               },
               "callbackAddress": "https://example.com/callback"
             }

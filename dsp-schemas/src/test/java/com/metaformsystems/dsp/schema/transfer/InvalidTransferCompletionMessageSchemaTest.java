@@ -69,7 +69,7 @@ public class InvalidTransferCompletionMessageSchemaTest extends AbstractSchemaTe
               "@context": [
                 "https://w3id.org/dspace/2024/1/context.json"
               ],
-              "@type": "TransferError",
+              "@type": "TransferCompletionMessage",
               "providerPid": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab"
             }
             """;
