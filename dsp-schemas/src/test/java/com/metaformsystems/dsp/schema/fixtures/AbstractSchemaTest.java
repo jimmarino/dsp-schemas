@@ -30,6 +30,7 @@ public abstract class AbstractSchemaTest {
     protected static final String REQUIRED = "required";
     protected static final String ONE_OF = "oneOf";
     protected static final String TYPE = "type";
+    protected static final String ENUM = "enum";
 
     private static final String CLASSPATH_SCHEMA = "classpath:/";
 
