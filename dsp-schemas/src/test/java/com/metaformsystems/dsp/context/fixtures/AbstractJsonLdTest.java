@@ -38,6 +38,7 @@ import static com.apicatalog.jsonld.JsonLd.compact;
 import static com.apicatalog.jsonld.JsonLd.expand;
 import static com.metaformsystems.dsp.schema.SchemaConstants.DSP_CONTEXT;
 import static com.metaformsystems.dsp.schema.SchemaConstants.DSP_PREFIX;
+import static com.metaformsystems.dsp.schema.SchemaConstants.ODRL_CONTEXT;
 import static com.networknt.schema.SpecVersion.VersionFlag.V202012;
 import static java.lang.String.format;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -77,15 +78,20 @@ public abstract class AbstractJsonLdTest {
         mapper = new ObjectMapper();
         mapper.registerModule(new JSONPModule());
 
-        var contextStream = getClass().getResourceAsStream("/context/dspace.jsonld");
+        var dspaceStream = getClass().getResourceAsStream("/context/dspace.jsonld");
+        var odrlStream = getClass().getResourceAsStream("/context/odrl.jsonld");
         try {
-            var dspaceContext = mapper.readValue(contextStream, JsonObject.class);
-            var documentLoader = new LocalDocumentLoader(Map.of(DSP_CONTEXT, JsonDocument.of(dspaceContext)));
+            //JsonDocument.of(dspaceStream);
+            var dspaceContext = mapper.readValue(dspaceStream, JsonObject.class);
+            Map<String, Document> cache = Map.of(DSP_CONTEXT, JsonDocument.of(dspaceContext),
+                    ODRL_CONTEXT, JsonDocument.of(odrlStream)
+            );
+            var documentLoader = new LocalDocumentLoader(cache);
             compactionContext  = mapper.readValue(CONTEXT_REFERENCE, JsonStructure.class);
             options = new JsonLdOptions();
             options.setDocumentLoader(documentLoader);
 
-        } catch (IOException e) {
+        } catch (IOException | JsonLdError e) {
             throw new RuntimeException(e);
         }
     }
