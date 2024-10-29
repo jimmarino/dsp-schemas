@@ -17,10 +17,10 @@ package com.metaformsystems.dsp.context.transfer;
 import com.metaformsystems.dsp.context.fixtures.AbstractJsonLdTest;
 import org.junit.jupiter.api.Test;
 
-public class TransferErrorContextTest extends AbstractJsonLdTest {
+public class TransferContextTest extends AbstractJsonLdTest {
 
     @Test
-    void name() {
+    void verifyTransferError() {
         verifyRoundTrip("/transfer/example/transfer-error.json", "/transfer/transfer-error-schema.json");
     }
 
