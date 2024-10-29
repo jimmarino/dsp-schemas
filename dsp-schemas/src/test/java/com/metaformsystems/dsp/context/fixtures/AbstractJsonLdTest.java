@@ -81,7 +81,6 @@ public abstract class AbstractJsonLdTest {
         var dspaceStream = getClass().getResourceAsStream("/context/dspace.jsonld");
         var odrlStream = getClass().getResourceAsStream("/context/odrl.jsonld");
         try {
-            //JsonDocument.of(dspaceStream);
             var dspaceContext = mapper.readValue(dspaceStream, JsonObject.class);
             Map<String, Document> cache = Map.of(DSP_CONTEXT, JsonDocument.of(dspaceContext),
                     ODRL_CONTEXT, JsonDocument.of(odrlStream)
