@@ -12,7 +12,7 @@
  *
  */
 
-package com.metaformsystems.dsp.context;
+package com.metaformsystems.dsp.context.catalog;
 
 import com.metaformsystems.dsp.context.fixtures.AbstractJsonLdTest;
 import org.junit.jupiter.api.Test;
