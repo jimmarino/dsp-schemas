@@ -7,6 +7,14 @@
     "dcat": "http://www.w3.org/ns/dcat#",
     "odrl": "http://www.w3.org/ns/odrl/2/",
     "dspace": "https://w3id.org/dspace/2024/1/",
+    "DatasetRequestMessage": {
+      "@id": "dspace:DatasetRequestMessage",
+      "@context": {
+        "@version": 1.1,
+        "@protected": true,
+        "dataset": "dspace:dataset"
+      }
+    },
     "CatalogRequestMessage": {
       "@id": "dspace:CatalogRequestMessage",
       "@context": {
@@ -371,6 +379,10 @@
           "@type": "@id",
           "@id": "dspace:participantId"
         },
+        "catalog": {
+          "@id": "dcat:catalog",
+          "@container": "@set"
+        },
         "dataset": {
           "@id": "dcat:dataset",
           "@container": "@set"
@@ -419,8 +431,7 @@
           "@id": "dct:format"
         },
         "accessService": {
-          "@id": "dcat:accessService",
-          "@container": "@set"
+          "@id": "dcat:accessService"
         }
       }
     },

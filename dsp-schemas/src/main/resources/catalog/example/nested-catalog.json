@@ -16,11 +16,11 @@
           "accessService": "urn:uuid:4aa2dcc8-4d2d-569e-d634-8394a8834d77"
         }
       ],
-      "dcat:service": [
+      "service": [
         {
           "@id": "urn:uuid:4aa2dcc8-4d2d-569e-d634-8394a8834d77",
-          "@type": "dcat:DataService",
-          "dcat:endpointURL": "https://provder-a.com/subcatalog"
+          "@type": "DataService",
+          "endpointURL": "https://provder-a.com/subcatalog"
         }
       ]
     }
