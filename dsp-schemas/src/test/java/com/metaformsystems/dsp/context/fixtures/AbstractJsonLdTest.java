@@ -28,7 +28,6 @@ import com.networknt.schema.SchemaLocation;
 import jakarta.json.JsonObject;
 import jakarta.json.JsonStructure;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.net.URI;
@@ -41,11 +40,12 @@ import static com.metaformsystems.dsp.schema.SchemaConstants.DSP_CONTEXT;
 import static com.metaformsystems.dsp.schema.SchemaConstants.DSP_PREFIX;
 import static com.networknt.schema.SpecVersion.VersionFlag.V202012;
 import static java.lang.String.format;
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Base class for Json-Ld expansion and compaction tests.
  */
-public class AbstractJsonLdTest {
+public abstract class AbstractJsonLdTest {
     protected ObjectMapper mapper;
     protected JsonStructure compactionContext;
     protected JsonLdOptions options;
@@ -53,17 +53,12 @@ public class AbstractJsonLdTest {
     private static final String CLASSPATH_SCHEMA = "classpath:/";
     private static final String CONTEXT_REFERENCE = format("{\"@context\": [\"%s\"]}", DSP_CONTEXT);
 
-    @Test
-    void name() {
-        verifyRoundTrip("/transfer/example/transfer-error.json", "/transfer/transfer-error-schema.json");
-    }
-
     protected void verifyRoundTrip(String jsonFile, String schemaFile) {
         try {
             var stream = getClass().getResourceAsStream(jsonFile);
             var message = mapper.readValue(stream, JsonObject.class);
             var expanded = expand(JsonDocument.of(message)).options(options).get();
-            var compacted = compact(JsonDocument.of(expanded), JsonDocument.of(compactionContext)).get();
+            var compacted = compact(JsonDocument.of(expanded), JsonDocument.of(compactionContext)).options(options).get();
 
             var schemaFactory = JsonSchemaFactory.getInstance(V202012, builder ->
                     builder.schemaMappers(schemaMappers -> schemaMappers.mapPrefix(DSP_PREFIX, CLASSPATH_SCHEMA))
@@ -71,7 +66,7 @@ public class AbstractJsonLdTest {
 
             var schema = schemaFactory.getSchema(SchemaLocation.of(DSP_PREFIX + schemaFile));
             var result = schema.validate(mapper.convertValue(compacted, JsonNode.class));
-            System.out.println();
+            assertThat(result.isEmpty()).isTrue();
         } catch (IOException | JsonLdError e) {
             throw new RuntimeException(e);
         }
@@ -85,13 +80,8 @@ public class AbstractJsonLdTest {
         var contextStream = getClass().getResourceAsStream("/context/dspace.jsonld");
         try {
             var dspaceContext = mapper.readValue(contextStream, JsonObject.class);
-            var documentLoader = new LocalDocumentLoader(Map.of("https://w3id.org/dspace/2024/1/context.json", JsonDocument.of(dspaceContext)));
-            // working:
-            // compactionContext  = dspaceContext;
-
-            // not working:
+            var documentLoader = new LocalDocumentLoader(Map.of(DSP_CONTEXT, JsonDocument.of(dspaceContext)));
             compactionContext  = mapper.readValue(CONTEXT_REFERENCE, JsonStructure.class);
-
             options = new JsonLdOptions();
             options.setDocumentLoader(documentLoader);
 
