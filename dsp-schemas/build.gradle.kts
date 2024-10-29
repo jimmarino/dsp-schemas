@@ -12,6 +12,10 @@ dependencies {
     }
 
     testImplementation("org.assertj:assertj-core:3.26.3")
+    testImplementation("com.apicatalog:titanium-json-ld:1.4.1")
+    testImplementation("org.glassfish:jakarta.json:2.0.1")
+    testImplementation("com.fasterxml.jackson.core:jackson-databind:2.18.0")
+    testImplementation("com.fasterxml.jackson.datatype:jackson-datatype-jakarta-jsonp:2.18.0")
 }
 
 testing {
