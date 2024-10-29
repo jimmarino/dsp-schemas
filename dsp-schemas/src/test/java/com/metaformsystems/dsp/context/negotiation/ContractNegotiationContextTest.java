@@ -67,13 +67,11 @@ public class ContractNegotiationContextTest extends AbstractJsonLdTest {
                 "/negotiation/contract-offer-message-schema.json");
     }
 
-
     @Test
     void verifyContractRequestMessage() {
         verifyRoundTrip("/negotiation/example/contract-request-message.json",
                 "/negotiation/contract-request-message-schema.json");
     }
-
 
     @Test
     void verifyContractRequestMessageInitial() {
