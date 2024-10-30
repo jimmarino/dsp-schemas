@@ -12,12 +12,12 @@
  *
  */
 
-package com.metaformsystems.dsp.schema;
+package com.metaformsystems.dsp;
 
 /**
  * Defines constants for schema validation.
  */
-public interface SchemaConstants {
+public interface DspConstants {
 
     String DSP_CONTEXT = "https://w3id.org/dspace/2024/1/context.json";
     String DSP_PREFIX = "https://w3id.org/dspace/2024/1/";

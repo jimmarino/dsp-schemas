@@ -19,7 +19,7 @@ import com.networknt.schema.JsonSchema;
 import com.networknt.schema.JsonSchemaFactory;
 import com.networknt.schema.SchemaLocation;
 
-import static com.metaformsystems.dsp.schema.SchemaConstants.DSP_PREFIX;
+import static com.metaformsystems.dsp.DspConstants.DSP_PREFIX;
 import static com.networknt.schema.SpecVersion.VersionFlag.V202012;
 
 /**

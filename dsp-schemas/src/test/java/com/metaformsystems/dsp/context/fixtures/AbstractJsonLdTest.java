@@ -36,9 +36,9 @@ import java.util.Map;
 
 import static com.apicatalog.jsonld.JsonLd.compact;
 import static com.apicatalog.jsonld.JsonLd.expand;
-import static com.metaformsystems.dsp.schema.SchemaConstants.DSP_CONTEXT;
-import static com.metaformsystems.dsp.schema.SchemaConstants.DSP_PREFIX;
-import static com.metaformsystems.dsp.schema.SchemaConstants.ODRL_CONTEXT;
+import static com.metaformsystems.dsp.DspConstants.DSP_CONTEXT;
+import static com.metaformsystems.dsp.DspConstants.DSP_PREFIX;
+import static com.metaformsystems.dsp.DspConstants.ODRL_CONTEXT;
 import static com.networknt.schema.SpecVersion.VersionFlag.V202012;
 import static java.lang.String.format;
 import static org.assertj.core.api.Assertions.assertThat;
