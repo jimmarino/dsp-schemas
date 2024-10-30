@@ -78,18 +78,17 @@ public abstract class AbstractJsonLdTest {
         mapper = new ObjectMapper();
         mapper.registerModule(new JSONPModule());
 
-        var dspaceStream = getClass().getResourceAsStream("/context/dspace.jsonld");
-        var odrlStream = getClass().getResourceAsStream("/context/odrl.jsonld");
-        try {
+        try (var dspaceStream = getClass().getResourceAsStream("/context/dspace.jsonld");
+             var odrlStream = getClass().getResourceAsStream("/context/odrl.jsonld")) {
             var dspaceContext = mapper.readValue(dspaceStream, JsonObject.class);
+            @SuppressWarnings("DataFlowIssue")
             Map<String, Document> cache = Map.of(DSP_CONTEXT, JsonDocument.of(dspaceContext),
                     ODRL_CONTEXT, JsonDocument.of(odrlStream)
             );
             var documentLoader = new LocalDocumentLoader(cache);
-            compactionContext  = mapper.readValue(CONTEXT_REFERENCE, JsonStructure.class);
+            compactionContext = mapper.readValue(CONTEXT_REFERENCE, JsonStructure.class);
             options = new JsonLdOptions();
             options.setDocumentLoader(documentLoader);
-
         } catch (IOException | JsonLdError e) {
             throw new RuntimeException(e);
         }
