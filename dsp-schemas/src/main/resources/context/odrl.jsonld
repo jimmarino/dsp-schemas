@@ -8,23 +8,12 @@
       "@type": "@id",
       "@id": "odrl:profile"
     },
-    "inheritFrom": {
-      "@type": "@id",
-      "@id": "odrl:inheritFrom"
-    },
     "prohibit": "odrl:prohibit",
-    "invalid": "odrl:invalid",
     "Agreement": "odrl:Agreement",
     "Assertion": "odrl:Assertion",
     "Offer": "odrl:Offer",
-    "Request": "odrl:Request",
     "Set": "odrl:Set",
     "Asset": "odrl:Asset",
-    "AssetCollection": "odrl:AssetCollection",
-    "relation": {
-      "@type": "@id",
-      "@id": "odrl:relation"
-    },
     "hasPolicy": {
       "@type": "@id",
       "@id": "odrl:hasPolicy"
@@ -32,18 +21,6 @@
     "target": {
       "@type": "@id",
       "@id": "odrl:target"
-    },
-    "output": {
-      "@type": "@id",
-      "@id": "odrl:output"
-    },
-    "partOf": {
-      "@type": "@id",
-      "@id": "odrl:partOf"
-    },
-    "source": {
-      "@type": "@id",
-      "@id": "odrl:source"
     },
     "assignee": {
       "@type": "@id",
@@ -81,24 +58,12 @@
       "@type": "@id",
       "@id": "odrl:duty"
     },
-    "consequence": {
-      "@type": "@id",
-      "@id": "odrl:consequence"
-    },
-    "remedy": {
-      "@type": "@id",
-      "@id": "odrl:remedy"
-    },
     "Constraint": "odrl:Constraint",
     "LogicalConstraint": "odrl:LogicalConstraint",
     "constraint": {
       "@type": "@id",
       "@id": "odrl:constraint",
       "@container": "@set"
-    },
-    "refinement": {
-      "@type": "@id",
-      "@id": "odrl:refinement"
     },
     "Operator": "odrl:Operator",
     "operator": {
@@ -107,21 +72,11 @@
     },
     "RightOperand": "odrl:RightOperand",
     "rightOperand": "odrl:rightOperand",
-    "rightOperandReference": {
-      "@type": "xsd:anyURI",
-      "@id": "odrl:rightOperandReference"
-    },
     "LeftOperand": "odrl:LeftOperand",
     "leftOperand": {
       "@type": "@vocab",
       "@id": "odrl:leftOperand"
     },
-    "unit": "odrl:unit",
-    "dataType": {
-      "@type": "xsd:anyType",
-      "@id": "odrl:datatype"
-    },
-    "status": "odrl:status",
     "eq": "odrl:eq",
     "gt": "odrl:gt",
     "gteq": "odrl:gteq",
