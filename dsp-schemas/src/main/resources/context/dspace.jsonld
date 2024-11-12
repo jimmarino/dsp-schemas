@@ -45,8 +45,6 @@
         "@protected": true,
         "@import": "http://www.w3.org/dspace-odrl/odrl.jsonld",
         "@propagate": true,
-        "uid": null,
-        "type": null,
         "callbackAddress": "dspace:callbackAddress",
         "providerPid": {
           "@type": "@id",
@@ -69,8 +67,6 @@
         "@protected": true,
         "@import": "http://www.w3.org/dspace-odrl/odrl.jsonld",
         "@propagate": true,
-        "uid": null,
-        "type": null,
         "callbackAddress": "dspace:callbackAddress",
         "providerPid": {
           "@type": "@id",
@@ -93,8 +89,6 @@
         "@protected": true,
         "@import": "http://www.w3.org/dspace-odrl/odrl.jsonld",
         "@propagate": true,
-        "uid": null,
-        "type": null,
         "providerPid": {
           "@type": "@id",
           "@id": "dspace:providerPid"
@@ -400,8 +394,6 @@
         "@protected": true,
         "@import": "http://www.w3.org/dspace-odrl/odrl.jsonld",
         "@propagate": true,
-        "uid": null,
-        "type": null,
         "distribution": {
           "@id": "dcat:distribution",
           "@container": "@set"

@@ -4,7 +4,7 @@
   "type": "object",
   "allOf": [
     {
-      "$ref": "#/definitions/DataAddress"
+      "$ref": "#/definitions/AbstractTransferCodeMessage"
     }
   ],
   "$id": "https://w3id.org/dspace/2024/1/transfer/transfer-schema.json",
@@ -35,49 +35,6 @@
         "@context",
         "providerPid",
         "consumerPid"
-      ]
-    },
-    "DataAddress": {
-      "type": "object",
-      "properties": {
-        "@type": {
-          "type": "string",
-          "const": "DataAddress"
-        },
-        "endpointType": {
-          "type": "string"
-        },
-        "endpoint": {
-          "type": "string"
-        },
-        "endpointProperties": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "@type": {
-                "type": "string",
-                "const": "EndpointProperty"
-              },
-              "name": {
-                "type": "string"
-              },
-              "value": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "@type",
-              "name",
-              "value"
-            ]
-          }
-        }
-      },
-      "required": [
-        "@type",
-        "endpointType",
-        "endpoint"
       ]
     }
   }

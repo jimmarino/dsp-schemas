@@ -31,7 +31,7 @@ public class TransferSchemaTest extends AbstractSchemaTest {
 
     @BeforeEach
     void setUp() {
-        setUp("/transfer/transfer-schema.json");
+        setUp("/transfer/data-address-schema.json");
     }
 
 
