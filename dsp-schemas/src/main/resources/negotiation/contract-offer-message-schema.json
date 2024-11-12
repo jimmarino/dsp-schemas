@@ -32,11 +32,15 @@
             },
             {
               "properties": {
+                "@id": {
+                  "type": "string"
+                },
                 "target": {
                   "type": "string"
                 }
               },
               "required": [
+                "@id",
                 "target"
               ]
             }

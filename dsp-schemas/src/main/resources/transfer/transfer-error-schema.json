@@ -10,29 +10,22 @@
   "$id": "https://w3id.org/dspace/2024/1/transfer/transfer-error-schema.json",
   "definitions": {
     "TransferError": {
-      "type": "object",
-      "properties": {
-        "@context": {
-          "$ref": "https://w3id.org/dspace/2024/1/common/context-schema.json"
+      "allOf": [
+        {
+          "$ref": "https://w3id.org/dspace/2024/1/transfer/transfer-schema.json#definitions/AbstractTransferCodeMessage"
         },
-        "@type": {
-          "type": "string",
-          "const": "TransferError"
-        },
-        "providerPid": {
-          "type": "string"
-        },
-        "consumerPid": {
-          "type": "string"
-        },
-        "code": {
-          "type": "string"
-        },
-        "reason": {
-          "type": "array",
-          "items": {}
+        {
+          "properties": {
+            "@type": {
+              "type": "string",
+              "const": "TransferError"
+            }
+          },
+          "required": [
+            "@type"
+          ]
         }
-      },
+      ],
       "required": [
         "@context",
         "@type",

@@ -26,7 +26,7 @@
           "type": "string"
         },
         "dataAddress": {
-          "$ref": "https://w3id.org/dspace/2024/1/transfer/transfer-schema.json"
+          "$ref": "https://w3id.org/dspace/2024/1/transfer/data-address-schema.json"
         }
       },
       "required": [
